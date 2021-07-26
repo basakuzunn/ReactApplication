@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./home.css";
@@ -27,7 +26,7 @@ export default function Home() {
       </div>
       <div className="home">
         <header />
-        <Posts posts={posts} />
+        <Posts posts={posts} setPosts={setPosts} />
         <Sidebar />
       </div>
     </>

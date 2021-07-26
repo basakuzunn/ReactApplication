@@ -43,30 +43,37 @@ export default function SinglePost() {
         {post.photo && (
           <img src={PF + post.photo} alt="" className="singlePostImg" />
         )}
-        <h1 className="singlePostTitle">
-          {post.title}
-          <div className="singlePostEdit">
-            <i
-              className="singlePostIcon fas fa-pencil-alt"
-              onClick={() => setUpdateMode(true)}
-            ></i>
-            <i
-              className="singlePostIcon fas fa-trash-alt"
-              onClick={handleDelete}
-            ></i>
-          </div>
-        </h1>
+        {updateMode ? (
+          <input
+            type="text"
+            value={post.title}
+            className="singlePostTitleInput"
+          />
+        ) : (
+          <h1 className="singlePostTitle">
+            {post.title}
+            <div className="singlePostEdit">
+              <i
+                className="singlePostIcon fas fa-pencil-alt"
+                onClick={() => setUpdateMode(true)}
+              ></i>
+              <i
+                className="singlePostIcon fas fa-trash-alt"
+                onClick={handleDelete}
+              ></i>
+            </div>
+          </h1>
+        )}
         <div className="singlePostInfo">
           <span className="singlePostOwner">
             Owner: <b>{post.userId}</b>
           </span>
           <span className="singlePostDate">Date: 1 hour ago </span>
         </div>
-
         {updateMode ? (
           <textarea
             className="singlePostDescInput"
-            value={desc}
+            value={post.body}
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (

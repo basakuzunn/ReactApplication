@@ -18,6 +18,13 @@
   font-size: 40px;
   color: #685669;
 }
+.singlePostTitleInput {
+  text-align: center;
+  margin: 10px;
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  color: #685669;
+}
 .singlePostEdit {
   float: right;
   font-size: 18px;
@@ -37,6 +44,11 @@
   color: #292b2a;
 }
 .singlePostDesc {
+  color: #292b2a;
+  font-size: 18px;
+  line-height: 25px;
+}
+.singlePostDescInput {
   color: #292b2a;
   font-size: 18px;
   line-height: 25px;

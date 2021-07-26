@@ -25,6 +25,11 @@ export default function Topbar() {
               WRITE
             </Link>
           </li>
+          <li className="topListItem">
+            <Link to="/users" className="link">
+              USERS
+            </Link>
+          </li>
         </ul>
       </div>
       <div className="topRight">
