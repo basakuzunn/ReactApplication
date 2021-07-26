@@ -1,0 +1,75 @@
+.user {
+  font-family: "Dancing Script", cursive;
+  font-size: 18px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.userName {
+  background-color: #f5ebf5;
+}
+.userEmail {
+  background-color: #f5ebf5;
+}
+.userAddress {
+  background-color: #f5ebf5;
+}
+.userCompany {
+  background-color: #f5ebf5;
+}
+.userPost {
+  flex: 9;
+  padding: 20px;
+  padding-right: 0;
+  line-height: 25px;
+}
+.userPostDate {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-style: italic;
+  color: #292b2a;
+}
+.userName {
+  display: inline-block;
+  width: 60%;
+  margin-top: 15px;
+}
+.userTitle {
+  text-align: center;
+  margin: 10px;
+  font-family: "Dancing Script", cursive;
+  font-size: 30px;
+  color: #685669;
+  border-bottom: solid 1px rgb(7, 7, 10);
+}
+.userPostDesc {
+  font-family: "Ubuntu", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  margin-top: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.userPostDesc::first-letter {
+  margin-left: 15px;
+  font-size: 30px;
+  font-weight: 600;
+}
+.userPostId {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-style: italic;
+  color: #292b2a;
+}

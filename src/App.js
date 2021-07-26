@@ -2,26 +2,12 @@ import Home from "./pages/Home/Home";
 import Topbar from "./components/topbar/Topbar";
 import Write from "./pages/write/Write";
 import Setting from "./pages/setting/Setting";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Single from "./pages/single/Single";
-import GetList from "./components/GetList";
-import { useEffect, useState } from "react";
+import Users from "./pages/users/Users";
+import User from "./components/User/User";
 
 export default function App() {
-  const [users, setUsers] = useState([]);
-  const user = true;
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const requestUrl = "https://jsonplaceholder.typicode.com/users";
-        const reponse = await fetch(requestUrl);
-        const reponseJSON = await reponse.json();
-        console.log(reponseJSON);
-        setUsers(reponseJSON);
-      } catch {}
-    }
-    fetchUsers();
-  }, []);
   return (
     <Router>
       <Topbar />
@@ -38,8 +24,11 @@ export default function App() {
         <Route path="/posts/:id">
           <Single />
         </Route>
-        <Route path="/GetList">
-          <GetList users={users} />
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/user/:id">
+          <User />
         </Route>
       </Switch>
     </Router>
