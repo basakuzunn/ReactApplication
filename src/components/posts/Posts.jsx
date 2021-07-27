@@ -1,8 +1,21 @@
 import "./posts.css";
 import Post from "../post/Post";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function Posts(props) {
+  const [desc, setDesc] = useState("");
+  const [title, setTitle] = useState("");
+
+  const handleUpdate = async (post) => {
+    const res = await axios.put(
+      `https://jsonplaceholder.typicode.com/posts/${post.id}`,
+      {
+        title: title,
+        body: desc
+      }
+    );
+  };
   const handleDelete = async (post) => {
     const res = await axios.delete(
       `https://jsonplaceholder.typicode.com/posts/${post.id}`
@@ -13,7 +26,13 @@ export default function Posts(props) {
   return (
     <div className="posts">
       {props.posts.map((p) => {
-        return <Post handleDelete={handleDelete} post={p} />;
+        return (
+          <Post
+            handleDelete={handleDelete}
+            handleUpdate={handleUpdate}
+            post={p}
+          />
+        );
       })}
     </div>
   );

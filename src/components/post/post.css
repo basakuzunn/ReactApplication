@@ -35,16 +35,13 @@
   font-size: 20px;
   font-weight: 400;
   margin-top: 15px;
-
   color: #685669;
 }
 .postTitleInput {
+  text-align: center;
+  margin: 10px;
   font-family: "Dancing Script", cursive;
   font-size: 20px;
-  font-weight: 400;
-  margin-top: 15px;
-  display: inline-block;
-  word-wrap: break-word;
   color: #685669;
 }
 .postEdit {
@@ -71,13 +68,15 @@
   font-size: 14px;
   line-height: 24px;
   margin-top: 15px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
 }
 .postDescInput {
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 200px;
+  color: #292b2a;
+  font-size: 14px;
+  font-family: "Ubuntu", sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 15px;
 }

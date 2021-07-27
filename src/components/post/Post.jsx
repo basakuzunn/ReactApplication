@@ -1,27 +1,14 @@
 import "./post.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
+
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
 
 export default function Post(props) {
   const PF = "https://jsonplaceholder.typicode.com/albums/1/photos";
-  const [userId, setUserId] = useState(null);
+
   const [desc, setDesc] = useState("");
   const [title, setTitle] = useState("");
-  const [updateMode, setUpdateMode] = useState(true);
   var post = props.post;
 
-  const handleUpdate = async () => {
-    try {
-      await axios.put(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
-        userId: userId,
-        title: title,
-        body: desc
-      });
-      setUpdateMode(true);
-    } catch (err) {}
-  };
   return (
     <div className="post">
       {post.photo && <img className="postImg" src={PF + post.photo} alt="" />}
@@ -33,17 +20,16 @@ export default function Post(props) {
         </div>
 
         <span className="postId">{post.id}</span>
-        {updateMode ? (
-          <input type="text" value={post.title} className="postTitleInput" />
-        ) : (
-          <span className="postTitle">{post.title}</span>
-        )}
+
+        <input
+          type="text"
+          defaultValue={post.title}
+          className="postTitleInput"
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
         <div className="postEdit">
-          <i
-            className="postIcon fas fa-pencil-alt"
-            onClick={() => setUpdateMode(true)}
-          ></i>
+          <i className="postIcon fas fa-pencil-alt"></i>
           <i
             className="postIcon fas fa-trash-alt"
             onClick={() => {
@@ -61,20 +47,21 @@ export default function Post(props) {
           </span>
         </div>
       </div>
-      {updateMode ? (
-        <textarea
-          className="postDescInput"
-          value={post.body}
-          onChange={(e) => setDesc(e.target.value)}
-        />
-      ) : (
-        <p className="postDesc">{post.body}</p>
-      )}
-      {updateMode && (
-        <button className="postButton" onClick={handleUpdate}>
-          Update
-        </button>
-      )}
+
+      <textarea
+        className="postDescInput"
+        defaultValue={post.body}
+        onChange={(e) => setDesc(e.target.value)}
+      />
+
+      <button
+        className="postButton"
+        onClick={() => {
+          props.handleUpdate(post);
+        }}
+      >
+        Update
+      </button>
     </div>
   );
 }
