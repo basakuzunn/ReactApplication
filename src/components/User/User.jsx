@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router";
 import "./User.css";
 
-export default function Users() {
+export default function Users(props) {
   const [user, setUser] = useState({ company: {}, address: {} });
   const location = useLocation();
   const [posts, setPosts] = useState([]);
@@ -58,6 +58,10 @@ export default function Users() {
       {filterPosts.map((post) => {
         return (
           <div className="userPost">
+            <div className="postEdit">
+              <i className="postIcon fas fa-pencil-alt"></i>
+              <i className="postIcon fas fa-trash-alt"></i>
+            </div>
             <span className="userPostId">{post.id}</span>
             <span className="userTitle">{post.title}</span>
             <br />

@@ -22,6 +22,7 @@ export default function Post(props) {
         <span className="postId">{post.id}</span>
 
         <input
+          key={post.id}
           type="text"
           defaultValue={post.title}
           className="postTitleInput"
@@ -49,6 +50,7 @@ export default function Post(props) {
       </div>
 
       <textarea
+        key={post.id}
         className="postDescInput"
         defaultValue={post.body}
         onChange={(e) => setDesc(e.target.value)}
